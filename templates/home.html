@@ -1,0 +1,334 @@
+{% extends 'nav.html' %}
+
+{% block data %}
+<div id="main">
+    <div id="main_cont">
+        <div id="heat">
+            Welcome
+        </div>
+        <div id="every">
+            So Lock is just in its Starting Place Our Aim is To Make Password Storage As Simple as Possible without
+            compromising the Securing Features at Lock You Can Store Passwords Very Simply Without Any Difficulty.
+            </br></br>
+            Note: if you add spaces between the password it wil take the value of just before the first space value :)
+        </div>
+    </div>
+    <div id="passes">
+        <div>{{use}} Passwords</div>
+        {% if use_sec %}
+        <div id="adding" class="kuli">
+            <div>Add</div>
+            <i class="fa-solid fa-square-plus"></i>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div id="data">
+    {% if not use_sec %}
+    <div id="jul">
+        <div id="illu">
+            <i class="fa-solid fa-circle-user"></i>
+        </div>
+        <div id="jul_head">
+            Please Login And Add Passwords To See Them Here
+        </div>
+        <div id="buus">
+            <a href="login">Login</a>
+            <a href="signup">Signup</a>
+        </div>
+    </div>
+    {% else %}
+    {% if datu %}
+    <div id="jul">
+        <div id="jul_head">
+            No Passwords Added Yet
+        </div>
+    </div>
+    {% else %}
+    {% for i in dat %}
+    <div class="ditta">
+        <div class="ditta_cont">
+            <form action="delpass" method="post">{% csrf_token %}
+                <div class="more">
+                    <div class="cont_tit">
+                        <input type="text" value="{{i.title}}" name="tiu" readonly
+                            style="background: transparent; font-family: 'Noto Sans Display', sans-serif; outline: none; border: none; color: black; font-size: 30px;">
+                    </div>
+                    <div class="interact">
+                        <i class="fa-solid fa-eye lio hug"></i>
+                        <i class="fa-solid fa-trash lio hug"></i>
+                    </div>
+                </div>
+                <div class="cont_pass">
+                    <div class="cont_pass_tit">
+                        Password
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div class="passi">
+                            <input type="password" class="nonni" value={{i.passes}} readonly>
+                        </div>
+                        <div class="edi_passes">
+                            <button class="buting copie" type="button">Copy</button>
+                            <button class="buting edit_password" type="button">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endif %}
+</div>
+{% if use_sec %}
+<div id="add_pass" class="kuli">
+    <i class="fa-solid fa-plus"></i>
+</div>
+{% endif %}
+{% endblock data %}
+{% block sty %}
+<style>
+    body {
+        background-color: rgb(228, 228, 228);
+    }
+
+    #hel {
+        color: aqua;
+    }
+
+    #main_cont {
+        color: white;
+        background-color: rgb(28, 159, 225);
+        padding: 10px;
+        padding-left: 25px;
+    }
+
+    #heat {
+        font-size: 60px;
+        padding-top: 30px;
+        font-family: 'Noto Sans Display', sans-serif;
+    }
+
+    #every {
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 17px;
+        margin-top: 15px;
+        letter-spacing: 1.3px;
+        padding-bottom: 30px;
+        width: 80%;
+        line-height: 25px;
+    }
+
+    #passes {
+        color: black;
+        background-color: white;
+        font-family: 'Noto Sans Display', sans-serif;
+        padding: 15px;
+        font-size: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: auto;
+        display: flex;
+        border-bottom: 5px solid rgb(28, 159, 225);
+    }
+
+    #data {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 517px;
+    }
+
+    #jul {
+        margin-top: 40px;
+        text-align: center;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    #jul_head {
+        color: rgb(48, 48, 48);
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 25px;
+    }
+
+    #buus {
+        padding-top: 40px;
+    }
+
+    a {
+        background-color: rgb(63, 63, 63);
+        color: white;
+        font-family: 'Noto Sans Display', sans-serif;
+        padding: 15px;
+        text-decoration: none;
+        margin: 10px;
+        margin-top: 20px;
+        border-radius: 7px;
+    }
+
+    #illu {
+        color: rgb(63, 63, 63);
+        font-size: 60px;
+        padding-bottom: 20px;
+        width: 40%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .fa-plus {
+        padding: 20px;
+        position: fixed;
+        bottom: 20;
+        right: 20;
+        background-color: rgb(28, 159, 225);
+        color: white;
+        border-radius: 50%;
+        font-size: 23px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    #adding {
+        display: flex;
+        margin-left: auto;
+        color: black;
+    }
+
+    .fa-square-plus {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .ditta {
+        background-color: white;
+        padding: 15px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        border-radius: 7px;
+    }
+
+    .cont_tit {
+        color: black;
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 25px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid rgb(28, 159, 225);
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .cont_pass_tit {
+        color: black;
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .nonni {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 20px;
+        letter-spacing: 1.7px;
+    }
+
+    .passi {
+        padding: 4px;
+        border-bottom: 7px solid rgb(28, 159, 225);
+        border-radius: 7px;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .edi_passes {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    .buting {
+        height: 35px;
+        margin-left: 10px;
+        outline: none;
+        font-family: 'Noto Sans Display', sans-serif;
+        background-color: rgb(28, 159, 225);
+        color: white;
+        border: none;
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 50px;
+    }
+
+    .more {
+        display: flex;
+        width: 100%;
+    }
+
+    .interact {
+        margin-left: auto;
+        display: flex;
+    }
+
+    .hug {
+        color: black;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+</style>
+{% endblock sty %}
+
+{% block cript %}
+<script>
+    const buttu = document.getElementsByClassName('copie');
+    Array.from(buttu).forEach((ele) => {
+        ele.addEventListener('click', () => {
+            var a = ele.parentElement.parentElement
+            var data = a.getElementsByTagName('input')[0].value
+            const tc = navigator.clipboard
+            tc.writeText(data).then(ele.style.backgroundColor = 'green')
+            ele.innerHTML = 'Copied'
+            ele.style.width = '60px'
+        })
+    })
+
+    const jule = document.getElementsByClassName('kuli');
+    Array.from(jule).forEach((element) => {
+        element.addEventListener('click', () => {
+            window.location.href = "{% url 'add_pass' %}";
+        })
+    })
+
+    const show = document.getElementsByClassName('fa-eye');
+    Array.from(show).forEach((ele) => {
+        ele.addEventListener('click', () => {
+            var a = ele.parentElement.parentElement.parentElement.getElementsByTagName('input')[2].type;
+            console.log(ele.parentElement.parentElement.parentElement.getElementsByTagName('input')[2]);
+            if (a == "password") {
+                ele.parentElement.parentElement.parentElement.getElementsByTagName('input')[2].type = "text";
+                ele.style.color = 'green'
+            }
+            else {
+                ele.parentElement.parentElement.parentElement.getElementsByTagName('input')[2].type = "password";
+                ele.style.color = 'black'
+            }
+        })
+    })
+
+    const tarru = document.getElementsByClassName('fa-trash');
+    Array.from(tarru).forEach((ele) => {
+        ele.addEventListener('click', () => {
+            const a = ele.parentElement.parentElement.parentElement.parentElement.parentElement
+            a.getElementsByTagName('form')[0].submit()
+        })
+    })
+
+    var my_edit_buts = document.getElementsByClassName('edit_password')
+    Array.from(my_edit_buts).forEach(ele => {
+        ele.addEventListener('click', (event) => {
+            let input_val = ele.parentElement.parentElement.parentElement.parentElement.getElementsByTagName('input')[1].value
+
+            window.location.href = `http://127.0.0.1:8000/editpass/${String(input_val).split(" ").join("-")}`
+        })
+    });
+
+</script>
+{% endblock cript %}

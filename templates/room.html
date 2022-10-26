@@ -1,0 +1,152 @@
+{% extends 'nav.html' %}
+
+{% block data %}
+<div id="main">
+    <form action="room" method="post">{% csrf_token %}
+        <div class="ditta">
+            <div class="ditta_cont">
+                <div class="more">
+                    <div class="cont_tit">
+                        <input type="text" value="Enter Room Name Below" name="tiu" readonly
+                            style="background: transparent; font-family: 'Noto Sans Display', sans-serif; outline: none; border: none; color: black; font-size: 30px;">
+                    </div>
+                </div>
+                <div class="cont_pass">
+                    <div class="cont_pass_tit">
+                        Room name
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div class="passi">
+                            <input type="text" class="nonni" placeholder="Room name Here" name="roname">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ditta">
+            <div class="ditta_cont">
+                <div class="more">
+                    <div class="cont_tit">
+                        <input type="text" value="Enter Useranme Below" name="tiu" readonly
+                            style="background: transparent; font-family: 'Noto Sans Display', sans-serif; outline: none; border: none; color: black; font-size: 30px;">
+                    </div>
+                </div>
+                <div class="cont_pass">
+                    <div class="cont_pass_tit">
+                        Username
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        <div class="passi">
+                            <input type="text" class="nonni" placeholder="Username Here" name="yoname">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width: auto; margin-right: 40px;">
+            <button type="submit">Enter Chat Room</button>
+        </div>
+    </form>
+</div>
+{% endblock data %}
+
+{% block sty %}
+<style>
+    body {
+        background-color: rgb(228, 228, 228);
+    }
+
+    .ditta {
+        background-color: white;
+        padding: 15px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        border-radius: 7px;
+    }
+
+    .cont_tit {
+        color: black;
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 25px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid rgb(28, 159, 225);
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .cont_pass_tit {
+        color: black;
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .nonni {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 20px;
+        letter-spacing: 1.7px;
+    }
+
+    .passi {
+        padding: 4px;
+        border-bottom: 7px solid rgb(28, 159, 225);
+        border-radius: 7px;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .edi_passes {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    .buting {
+        height: 35px;
+        margin-left: 10px;
+        outline: none;
+        font-family: 'Noto Sans Display', sans-serif;
+        background-color: rgb(28, 159, 225);
+        color: white;
+        border: none;
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 50px;
+    }
+
+    .more {
+        display: flex;
+        width: 100%;
+    }
+
+    .interact {
+        margin-left: auto;
+        display: flex;
+    }
+
+    .hug {
+        color: black;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+
+    button {
+        background-color: rgb(13, 48, 201);
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 7px;
+        outline: none;
+        border: none;
+        width: 100%;
+        margin: 20px;
+        margin-right: 120px;
+        height: 60px;
+        font-family: 'Noto Sans Display', sans-serif;
+    }
+</style>
+{% endblock sty %}
+
+{% block script %}{% endblock script %}

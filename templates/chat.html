@@ -1,0 +1,113 @@
+{% extends 'nav.html' %}
+
+{% block data %}
+<div id="main">
+    <div id="room_tit">
+        Legends Room
+    </div>
+    <div id="mess_box">
+        {% for i in drax %}
+        <div class="message">
+            <div class="message_by">
+                {{i.userid}}
+            </div>
+            <div class="real">
+                {{i.message}}
+            </div>
+            <div class="real_date">
+                {{i.date}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <form action="/send" method="post">{% csrf_token %}
+        <div id="write_mesasge">
+            <input type="text" placeholder={{player}} name="chatdat">
+            <input type="text" value={{gul}} hidden name="garaj">
+        </div>
+        <div style="width: 93%; margin: auto;">
+            <button id="sund" type="submit">Send</button>
+        </div>
+    </form>
+</div>
+{% endblock data %}
+
+{% block sty %}
+<style>
+    #mess_box {
+        width: 93%;
+        margin: auto;
+        background-color: rgb(228, 228, 228);
+        border-radius: 7px;
+        margin-top: 30px;
+        height: 400px;
+        overflow-y: auto;
+        border: 1px solid black;
+    }
+
+    .message {
+        padding: 10px;
+        background-color: white;
+        margin: 20px;
+        font-family: 'Noto Sans Display', sans-serif;
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .message_by {
+        border-bottom: 3px solid black;
+        font-size: 25px;
+        padding-bottom: 10px;
+        margin-bottom: 7px;
+    }
+
+    .real_date {
+        margin-top: 10px;
+        color: grey;
+    }
+
+    #write_mesasge {
+        width: 93%;
+        margin: auto;
+        margin-top: 17px;
+        background-color: white;
+        border: 3px solid grey;
+        border-radius: 7px;
+    }
+
+    input {
+        background-color: transparent;
+        font-family: 'Noto Sans Display', sans-serif;
+        color: black;
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin: auto;
+        margin-top: 7px;
+        height: 40px;
+        font-size: 17px;
+        color: white;
+        font-family: 'Noto Sans Display', sans-serif;
+        border: none;
+        outline: none;
+        border-radius: 7px;
+        background-color: rgb(94, 94, 94);
+    }
+
+    #room_tit {
+        width: 100%;
+        text-align: center;
+        font-family: 'Noto Sans Display', sans-serif;
+        font-size: 25px;
+        margin: 10px;
+    }
+</style>
+{% endblock sty %}
+
+{% block cript %}{% endblock cript %}

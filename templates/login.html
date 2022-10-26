@@ -1,0 +1,135 @@
+{% extends 'nav.html' %}
+
+{% block data %}
+<div id="main">
+    <div id="contact">
+        <form action="login" method="post">{% csrf_token %}
+            <div id="tilt">
+                Login
+            </div>
+            <div>
+                <div class="tell">
+                    Username
+                </div>
+                <div id="used" class="fields">
+                    <i class="fa-solid fa-circle-user crid"></i>
+                    <input type="text" name="use" placeholder="Enter username Here">
+                </div>
+            </div>
+            <div>
+                <div class="tell">
+                    Password
+                </div>
+                <div id="pas" class="fields">
+                    <i class="fa-solid fa-key crid"></i>
+                    <input type="password" name="passed" placeholder="Enter password Here">
+                </div>
+            </div>
+            <div id="seek">
+                {{kul}}
+            </div>
+            <div id="sub">
+                <button type="submit">Login</button>
+            </div>
+            <div id="sig_sec">
+                <a href="signup" id="sig">Signup</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock data %}
+
+{% block sty %}
+<style>
+    body {
+        background-color: rgb(28, 159, 225);
+    }
+
+    #contact {
+        width: 300px;
+        margin: auto;
+        padding: 13px;
+        background-color: white;
+        margin-top: 30px;
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #tilt {
+        margin-bottom: 20px;
+        font-size: 27px;
+        font-family: 'Noto Sans Display', sans-serif;
+        border-bottom: 3px solid black;
+        padding-bottom: 10px;
+    }
+
+    input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-family: 'Noto Sans Display', sans-serif;
+        width: 100%;
+    }
+
+    .fields {
+        border: 3px solid rgb(28, 159, 225);
+        border-radius: 7px;
+        padding: 5px;
+        margin-bottom: 10px;
+        display: flex;
+    }
+
+    ::placeholder {
+        color: black;
+        font-family: 'Noto Sans Display', sans-serif;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 100%;
+        height: 45px;
+        background-color: rgb(28, 159, 225);
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 7px;
+        font-family: 'Noto Sans Display', sans-serif;
+    }
+
+    .tell {
+        font-family: 'Noto Sans Display', sans-serif;
+        margin-bottom: 5px;
+    }
+
+    .crid {
+        color: black;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    #seek {
+        font-size: 13px;
+        font-family: 'Roboto', sans-serif;
+        color: tomato;
+    }
+
+    #sig {
+        text-decoration: none;
+        color: white;
+        margin: auto;
+        width: 200px;
+        height: 100%;
+    }
+
+    #sig_sec {
+        width: 100%;
+        text-align: center;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        background-color: black;
+        margin-top: 10px;
+        border-radius: 7px;
+        font-family: 'Noto Sans Display', sans-serif;
+    }
+</style>
+{% endblock sty %}
