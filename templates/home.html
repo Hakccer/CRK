@@ -326,7 +326,7 @@
         ele.addEventListener('click', (event) => {
             let input_val = ele.parentElement.parentElement.parentElement.parentElement.getElementsByTagName('input')[1].value
 
-            window.location.href = `http://127.0.0.1:8000/editpass/${String(input_val).split(" ").join("-")}`
+            window.location.href = `http://passwordsavier.herokuapp.com/editpass/${String(input_val).split(" ").join("-")}`
         })
     });
 
